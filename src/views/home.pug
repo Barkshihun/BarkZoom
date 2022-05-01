@@ -8,23 +8,22 @@ html(lang="ko")
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body
         header 
-            h1 Noom
-        main 
-            ul
+            h1#title Noom
+        main
             div#welcome
-                form#enter
-                    input(type="text", placeholder="room name", required)
-                    button Enter room
-                form#nickname
-                    input(type="text", placeholder="nickname", required)
-                    button Nickname
-                h4 Open Rooms:
-                ul
-            div#room
-                h3
-                ul
-                form#msg
-                    input(type="text", placeholder="message", required)
-                    button Message
+                form
+                    input(type="text", placeholder="Room Name", required)
+                    button Enter Room
+            div#call
+                div#loadingStream
+                    h1 Loading...
+                div#myStream
+                    video#myFace(disablePictureInPicture,autoplay,playsinline, width="400", height="400")
+                    button#mute Mute
+                    button#camera Turn Camera Off
+                    select#cameras
+                    select#microphones
+                    video#peerFace(disablePictureInPicture,autoplay,playsinline, width="400", height="400")
+
         script(src="/socket.io/socket.io.js")
         script(src="/public/js/app.js")
